@@ -23,7 +23,8 @@ h1{
 textarea, input {
   display: block;
   width: 100%;
-  background-color: rgb(199, 207, 196);
+  background-color: whitesmoke;
+  margin: 20px;
 }
 input {
   height: 36px;
@@ -31,6 +32,7 @@ input {
 }
 textarea {
   height: 200px;
+  
   font-size: 18px;
 }
 
@@ -40,5 +42,30 @@ button {
 
 p {
     font-weight: bolder;
+}
+
+.footer {
+    bottom: 0;
+    width: 100%;
+    height: 100px;
+    line-height: 40px;
+    text-align: center;
+}
+
+#footerBubble {
+    margin-top: 20px;
+}
+
+.thoughtBubbleButton {
+    text-align: center;
+}
+
+.headerInfo {
+    padding-left: 60px;
+}
+
+.noteHeader {
+    font-size: 150%;
+    padding-left: 45px;
 }
 

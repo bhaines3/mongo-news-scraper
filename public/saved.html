@@ -25,12 +25,32 @@
   </nav>
   <div id="wrapper">
     <h1>Your Saved Sports News</h1>
-    <div class="jumbotron" id="articles"></div>
-    <div id="notes"></div>
+    <div class="jumbotron text-center" id="articles"></div>
+    <div class="text-center" id="notes"></div>
   </div>
+  <div class="container">
+        <div class="row justify-content-center">
+            <footer class="footer">
+                <div class="wrapper text-center" id="footerBubble">
+                    <div class="collapse" id="thoughtBubble">
+                    <div class="card-body">     
+                        <button class="btn btn-dark text-right" type="button" data-toggle="collapse" data-target="#thoughtBubble" aria-expanded="false" aria-controls="thoughtBubble">       
+                        <div class="text-center text-light">© Copyright 2018 Brandon Haines | <a class= text-center href="https://github.com/bhaines3/mongo-news-scraper" target="_blank">GitHub</a> </div>     
+                        </button>
+                    </div>
+                    </div>
+                </div> 
+                <button class="btn btn-dark helpButton" type="button" data-toggle="collapse" data-target="#thoughtBubble" aria-expanded="false" aria-controls="thoughtBubble">
+                &#9776
+                </button>
+            </footer>
+        </div>
+    </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
   <link rel="stylesheet" type="text/css" href="/style.css">
   <script src="saved.js"></script>
 </body>

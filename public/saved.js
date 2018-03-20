@@ -6,7 +6,7 @@ $.getJSON("/api/saved", function (data) {
       //+ "<br />" + data[i].link + 
       $("#articles").append(` <a href="${data[i].link}"> ${data[i].link} </a> <br>`)
   
-      $("#articles").append(`<button id="delete" data-id="${data[i]._id}"> Delete Article </button> <hr>`)
+      $("#articles").append(`<button class='btn btn-dark' id="delete" data-id="${data[i]._id}"> Delete Article </button> <hr>`)
     }
   });
   
