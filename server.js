@@ -2,6 +2,7 @@ var express = require("express");
 var bodyParser = require("body-parser");
 var logger = require("morgan");
 var mongoose = require("mongoose");
+var path = require('path');
 
 // Our scraping tools
 // Axios is a promised-based http library, similar to jQuery's Ajax method
@@ -12,7 +13,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = 3000;
+var PORT = process.env.PORT || 3000;
 
 // Initialize Express
 var app = express();
@@ -31,9 +32,7 @@ var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines
 // By default mongoose uses callbacks for async queries, we're setting it to use promises (.then syntax) instead
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-    useMongoClient: true
-  });
+mongoose.connect(MONGODB_URI);
   
 
 // Routes
@@ -121,6 +120,47 @@ app.post("/articles/:id", function(req, res) {
       // If an error occurred, send it to the client
       res.json(err);
     });
+});
+app.post("/api/saved", function (req, res) {
+  // Create a new note and pass the req.body to the entry
+  db.Saved.create(req.body)
+    .then(function (dbArticle) {
+      // If we were able to successfully update an Article, send it back to the client
+      res.json(dbArticle);
+    })
+    .catch(function (err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
+
+app.get("/api/saved", function (req, res) {
+  db.Saved.find({})
+    .then(function (dbArticle) {
+      // If we were able to successfully update an Article, send it back to the client
+      res.json(dbArticle);
+    })
+    .catch(function (err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+});
+app.delete("/api/saved/:id", function (req, res) {
+  console.log(req.params.id);
+  db.Saved.findOneAndRemove({_id: req.params.id})
+    .then(function (dbArticle) {
+      // If we were able to successfully update an Article, send it back to the client
+      res.json(dbArticle);
+    })
+    .catch(function (err) {
+      // If an error occurred, send it to the client
+      res.json(err);
+    });
+  res.end();
+});
+app.get("/saved", function (req, res) {
+  // Create a new note and pass the req.body to the entry
+  res.sendFile(path.join(__dirname, "./public/saved.html"))
 });
 
 // Start the server

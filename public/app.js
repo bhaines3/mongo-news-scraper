@@ -3,10 +3,37 @@ $.getJSON("/articles", function(data) {
     // For each one
     for (var i = 0; i < data.length; i++) {
       // Display the apropos information on the page
-      $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "<br />" + data[i].link + "</p>");
+      $("#articles").append("<p data-id='" + data[i]._id + "'>" + data[i].title + "</p>");
+      //+ "<br />" + data[i].link + 
+      $("#articles").append(` <a href="${data[i].link}" target="_blank"> ${data[i].link} </a> <br>` )
+
+      $("#articles").append(`<button id="savedArticle" data-link="${data[i].link}" data-title="${data[i].title}"> Save Article </button> <hr>`)
     }
   });
-  
+
+  $("#scrape").on("click", function(event){
+    event.preventDefault();
+    $.get("/scrape").then((res) => {
+      console.log(res);
+      window.location.reload()
+    })
+  })
+
+  $(document).on("click", "#savedArticle", function (event) {
+    event.preventDefault();
+    var title = $(this).attr(`data-title`);
+    var link = $(this).attr(`data-link`);
+
+    var data = {
+      title,
+      link
+    }
+    console.log(data);
+    $.post("/api/saved", data).then((res) => {
+      console.log(res, "this is the saved article");
+    })
+  })
+    
   
   // Whenever someone clicks a p tag
   $(document).on("click", "p", function() {

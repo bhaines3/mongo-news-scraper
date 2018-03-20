@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <meta charset="UTF-8">
+  <title>B/R News Scraper</title>
+</head>
+
+<body>
+  <nav class="navbar-expand-lg navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">B/R News</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+      aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-item nav-link active" href="/">Home
+          <span class="sr-only">(current)</span>
+        </a>
+        <a class="nav-item nav-link" href="/scrape" id="scrape">Scrape Articles</a>
+        <a class="nav-item nav-link" href="/saved">Saved Articles</a>
+      </div>
+    </div>
+  </nav>
+  <div id="wrapper">
+    <h1>Your Saved Sports News</h1>
+    <div class="jumbotron" id="articles"></div>
+    <div id="notes"></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <script src="saved.js"></script>
+</body>
+
+</html>
