@@ -34,4 +34,11 @@ textarea {
   font-size: 18px;
 }
 
+button {
+    margin: 10px;
+}
+
+p {
+    font-weight: bolder;
+}
 

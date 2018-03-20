@@ -7,7 +7,7 @@ $.getJSON("/articles", function(data) {
       //+ "<br />" + data[i].link + 
       $("#articles").append(` <a href="${data[i].link}" target="_blank"> ${data[i].link} </a> <br>` )
 
-      $("#articles").append(`<button id="savedArticle" data-link="${data[i].link}" data-title="${data[i].title}"> Save Article </button> <hr>`)
+      $("#articles").append(`<button class="btn btn-outline-dark" id="savedArticle" data-link="${data[i].link}" data-title="${data[i].title}"> Save Article </button> <hr>`)
     }
   });
 
@@ -57,7 +57,7 @@ $.getJSON("/articles", function(data) {
         // A textarea to add a new note body
         $("#notes").append("<textarea id='bodyinput' name='body'></textarea>");
         // A button to submit a new note, with the id of the article saved to it
-        $("#notes").append("<button data-id='" + data._id + "' id='savenote'>Save Note</button>");
+        $("#notes").append("<button class='btn btn-dark' data-id='" + data._id + "' id='savenote'>Save Note</button>");
   
         // If there's a note in the article
         if (data.note) {
